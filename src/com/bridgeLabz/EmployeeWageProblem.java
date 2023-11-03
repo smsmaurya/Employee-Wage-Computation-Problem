@@ -9,13 +9,11 @@ public class EmployeeWageProblem {
     public static final int NUM_OF_WORKING_DAYS = 20;
     public static final int MAX_HRS_IN_MONTH = 150;
 
-
-    public static void main(String[] args) {
-
+    public static int computeEmpWage(){
         // Local variables
         int empHrs, totalEmpHrs = 0, totalWorkingDays=0;
 
-        // Logic of  calculating employee wage for number of working days
+        // Logic of employee wage computation number of working days
         while (totalEmpHrs <= MAX_HRS_IN_MONTH && totalWorkingDays <= NUM_OF_WORKING_DAYS){
             totalWorkingDays++;
             int empCheck = (int) (Math.floor(Math.random()*10)%3);
@@ -30,9 +28,15 @@ public class EmployeeWageProblem {
                     empHrs = 0;
             }
             totalEmpHrs += empHrs;
-            System.out.println("Days : "+totalWorkingDays+" Emp hrs : "+empHrs);
+            System.out.println("Days : "+totalWorkingDays+" Emp hrs : "+empHrs );
         }
         int totalEmpWage = totalEmpHrs * EMP_RATE_PER_HOUR;
-        System.out.println("Total Emp Wage : "+totalEmpWage);
+        System.out.println("Total Emp Wage of "+totalEmpHrs+" hrs : "+totalEmpWage);
+        return totalEmpWage;
+    }
+
+    public static void main(String[] args) {
+        computeEmpWage();
+
     }
 }
